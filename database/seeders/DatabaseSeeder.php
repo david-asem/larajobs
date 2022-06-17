@@ -50,5 +50,33 @@ class DatabaseSeeder extends Seeder
              ]
          );
 
+         JobListings::create(
+             [
+                 'title' => 'DevOps Engineer',
+                 'job_id'=>'DECM',
+                 'tags' => 'gcp, aws, azure, grafana, ci/cd, python',
+                 'location' => 'Central City, Mars',
+                 'company_name' => 'Flash Enterprises',
+                 'name_of_team'=>'infrastructure',
+                 'email' => 'flashemail3@email.com',
+                 'website' => 'https://www.flashenterprises.com',
+                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
+             ],
+         );
+
+         JobListings::create(
+             [
+                 'title' => 'Java Backend Developer',
+                 'job_id'=>'BDN',
+                 'tags' => 'springboot, java, api',
+                 'location' => 'Lagos, NG',
+                 'company_name' => 'Skynet Systems',
+                 'name_of_team'=>'platform',
+                 'email' => 'skynetemail4@email.com',
+                 'website' => 'https://www.skynet.com',
+                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minima et illo reprehenderit quas possimus voluptas repudiandae cum expedita, eveniet aliquid, quam illum quaerat consequatur! Expedita ab consectetur tenetur delensiti?'
+             ],
+         );
+
     }
 }
