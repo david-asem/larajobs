@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Route;
 use App\Models\JobListings;
 
@@ -15,22 +16,10 @@ use App\Models\JobListings;
 */
 
 //retrieve all job listings
-Route::get('/', function () {
-    return view('jobListings', [
-
-        'listings'=> JobListings::all(),
-
-
-
-    ]);
-});
+Route::get('/', [ListingController::class, 'index'] );
 
 //get Single JobListing
 
-Route::get('/listings/{listing}', function (JobListings $listing){
-    return view('singleListing', [
-        'listing'=>$listing
-    ]);
-});
+Route::get('/listings/{listing}', [ListingController::class, 'show'] );
 
 
