@@ -18,8 +18,18 @@ use App\Models\JobListings;
 //retrieve all job listings
 Route::get('/', [ListingController::class, 'index'] );
 
+
+//show create new job listing
+Route::get('/listings/create', [ListingController::class, 'create'] );
+
+
+//store new job listing
+Route::post('/listings', [ListingController::class, 'store'] );
+
+
 //get Single JobListing
 
 Route::get('/listings/{listing}', [ListingController::class, 'show'] );
+
 
 

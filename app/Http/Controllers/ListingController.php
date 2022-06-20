@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JobListings;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 
 class ListingController extends Controller
@@ -23,5 +24,30 @@ class ListingController extends Controller
         return view('listings.show', [
             'listing'=>$listing
         ]);
+    }
+
+    //show create new job listing
+    public function create(){
+        return view('listings.create');
+    }
+
+    //store new job listing
+    public function store(Request $request){
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'company_name' => 'required',
+            'location' => 'required',
+            'tags' => 'required',
+            'email' => ['required', 'email'],
+            'website' => 'required',
+            'job_id'=> 'required',
+            'name_of_team' => 'required',
+
+        ]);
+
+        JobListings::create($validatedData);
+
+        return redirect('/')->with('message', 'Job Listed Successfully!');
     }
 }

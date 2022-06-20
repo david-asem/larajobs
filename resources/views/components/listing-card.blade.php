@@ -14,6 +14,9 @@
         <div class="text-xl font-bold mb-4">{{$listing->company_name}}</div>
         <x-listing-tags :tagsCsv="$listing->tags" />
 
+        <div class="text-sm font-bold mb-4">{{$listing->job_id}}</div>
+        <div class="text-sm font-bold mb-4">{{$listing->name_of_team}}</div>
+
         <div class="text-lg mt-4">
             <i class="fa-solid fa-location-dot"></i>{{$listing->location}}
         </div>

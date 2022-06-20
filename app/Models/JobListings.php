@@ -9,8 +9,20 @@ class JobListings extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'company_name',
+        'location',
+        'tags',
+        'email',
+        'website',
+        'job_id',
+        'name_of_team',
+    ];
+
     //filter job listings by tag, location, description, and title
-    public function scopeFilter($query, array $filters)
+    public function scopeFilter($query, array $filters): void
     {
 
         if ($filters['tag'] ?? false) {
