@@ -17,7 +17,7 @@ use App\Models\JobListings;
 //retrieve all job listings
 Route::get('/', function () {
     return view('jobListings', [
-        'heading' => 'Latest Jobs',
+
         'listings'=> JobListings::all(),
 
 
@@ -25,11 +25,11 @@ Route::get('/', function () {
     ]);
 });
 
-//get Single JobListings
+//get Single JobListing
 
-Route::get('/listings/{id}', function ($id){
+Route::get('/listings/{listing}', function (JobListings $listing){
     return view('singleListing', [
-        'listing'=>JobListings::find($id)
+        'listing'=>$listing
     ]);
 });
 
