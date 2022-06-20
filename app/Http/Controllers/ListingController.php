@@ -11,9 +11,10 @@ class ListingController extends Controller
 
     //retrieve all job listings from db
     public function index(){
-        $listings = JobListings::all();
+
         return view('listings.index', [
-            'listings'=> $listings
+            'listings'=> JobListings::latest()->
+            filter(request(['tag', 'search']))->get()
         ]);
     }
 
