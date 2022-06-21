@@ -26,6 +26,16 @@ Route::get('/listings/create', [ListingController::class, 'create'] );
 //store new job listing
 Route::post('/listings', [ListingController::class, 'store'] );
 
+//show edit job listing
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'] );
+
+//update job listing
+Route::put('/listings/{listing}', [ListingController::class, 'update'] );
+
+//delete job listing
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy'] );
+
+
 
 //get Single JobListing
 

@@ -9,7 +9,7 @@
         <p class="mb-4">Post a job to find the perfect developer</p>
     </header>
 
-    <form method="post" action="/listings">
+    <form method="post" action="/listings" enctype="multipart/form-data">
         @csrf
         <div class="mb-6">
             <label
@@ -170,6 +170,11 @@
                 class="border border-gray-200 rounded p-2 w-full"
                 name="logo" value="{{old('logo')}}"
             />
+
+            @error('logo')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
+
         </div>
 
         <div class="mb-6">
