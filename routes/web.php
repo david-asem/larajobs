@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Models\JobListings;
 
@@ -41,5 +43,24 @@ Route::delete('/listings/{listing}', [ListingController::class, 'destroy'] );
 
 Route::get('/listings/{listing}', [ListingController::class, 'show'] );
 
+
+//show register create form
+Route::get('/register', [UserController::class, 'create'] );
+
+
+//store new user
+Route::post('/users', [UserController::class, 'store'] );
+
+
+//show login form
+Route::get('/login', [UserController::class, 'login'] );
+
+//login registered user
+Route::post('/users/authenticate', [UserController::class, 'authenticate'] );
+
+
+
+//logout user
+Route::post('/logout', [UserController::class, 'logout'] );
 
 
