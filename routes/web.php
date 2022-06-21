@@ -22,20 +22,20 @@ Route::get('/', [ListingController::class, 'index'] );
 
 
 //show create new job listing
-Route::get('/listings/create', [ListingController::class, 'create'] );
+Route::get('/listings/create', [ListingController::class, 'create'] )->middleware('auth');
 
 
 //store new job listing
-Route::post('/listings', [ListingController::class, 'store'] );
+Route::post('/listings', [ListingController::class, 'store'] )->middleware('auth');
 
 //show edit job listing
-Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'] );
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'] )->middleware('auth');
 
 //update job listing
-Route::put('/listings/{listing}', [ListingController::class, 'update'] );
+Route::put('/listings/{listing}', [ListingController::class, 'update'] )->middleware('auth');
 
 //delete job listing
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy'] );
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy'] )->middleware('auth');
 
 
 
@@ -45,7 +45,7 @@ Route::get('/listings/{listing}', [ListingController::class, 'show'] );
 
 
 //show register create form
-Route::get('/register', [UserController::class, 'create'] );
+Route::get('/register', [UserController::class, 'create'] )->middleware('guest');
 
 
 //store new user
@@ -53,7 +53,7 @@ Route::post('/users', [UserController::class, 'store'] );
 
 
 //show login form
-Route::get('/login', [UserController::class, 'login'] );
+Route::get('/login', [UserController::class, 'login'] )->name('login')->middleware('guest');
 
 //login registered user
 Route::post('/users/authenticate', [UserController::class, 'authenticate'] );
@@ -61,6 +61,6 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate'] );
 
 
 //logout user
-Route::post('/logout', [UserController::class, 'logout'] );
+Route::post('/logout', [UserController::class, 'logout'] )->middleware('auth');
 
 
