@@ -70,7 +70,7 @@
             <div class="mb-6">
                 <button
                     type="submit"
-                    class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
+                    class="bg-green-700 text-white rounded py-2 px-4 hover:bg-black"
                 >
                     Login In
                 </button>
@@ -79,8 +79,9 @@
             <div class="mt-8">
                 <p>
                     Don't have an account?
-                    <a href="/register" class="text-laravel"
-                    >Register a new account</a
+                    <a href="/register" class="text-green-500">
+
+                    Register a new account</a
                     >
                 </p>
             </div>

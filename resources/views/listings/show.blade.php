@@ -11,8 +11,8 @@
                 class="flex flex-col items-center justify-center text-center"
             >
                 <img
-                    class="w-48 mr-6 mb-6"
-                    src="{{$listing->logo ? asset('storage/' .$listing->logo):asset('images/no-image.png')}}"
+                    class="w-48 mr-6 mb-6 bg-transparent"
+                    src="{{$listing->logo ? asset('storage/' .$listing->logo):asset('images/no-img.png')}}"
                     alt=""
                 />
 
@@ -30,11 +30,14 @@
                         Job Description
                     </h3>
                     <div class="text-lg space-y-6">
-                        {{$listing->description}}
+
+
+                    {{$listing->description}}
+
 
                         <a
                             href="mailto:{{$listing->email}}"
-                            class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
+                            class="block bg-green-700 text-white mt-6 resize py-2 ml-96 mr-96 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-envelope"></i>
                             Contact {{$listing->company_name}}</a
                         >
@@ -42,7 +45,7 @@
                         <a
                             href="{{$listing->website}}"
                             target="_blank"
-                            class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
+                            class="block bg-black text-white py-2 ml-96 mr-96 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-globe"></i> Visit
                             Website</a
                         >
@@ -51,6 +54,8 @@
             </div>
         </x-card>
 
+
+        @auth
         <x-card class="mt-4 p-2 flex space-x-6">
             <a href="/listings/{{$listing->id}}/edit">
                 <i class="fa-solid fa-pencil"> Edit</i>
@@ -67,6 +72,8 @@
                 </button>
 
         </x-card>
+        @endauth
+
     </div>
 
 </x-layout>

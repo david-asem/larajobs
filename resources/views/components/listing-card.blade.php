@@ -3,8 +3,8 @@
 
 <div class="flex">
     <img
-        class="hidden w-48 mr-6 md:block"
-        src="{{asset('images/no-image.png')}}"
+        class="hidden w-48 mr-6 md:block object-scale-down bg-transparent"
+        src="{{asset('images/no-img.png')}}"
         alt=""
     />
     <div>

@@ -19,6 +19,7 @@ class JobListings extends Model
         'website',
         'job_id',
         'name_of_team',
+        'user_id',
     ];
 
     //filter job listings by tag, location, description, and title
@@ -37,5 +38,16 @@ class JobListings extends Model
                 ->orWhere('company_name', 'like', '%' . request('search') . '%');
         }
     }
+
+
+
+    //get the user that created the job listing
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+
+
 
 }

@@ -38,6 +38,11 @@ Route::put('/listings/{listing}', [ListingController::class, 'update'] )->middle
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'] )->middleware('auth');
 
 
+//manage job listings
+Route::get('/listings/manage', [ListingController::class, 'manage'] )->middleware('auth');
+
+
+
 
 //get Single JobListing
 
@@ -62,5 +67,6 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate'] );
 
 //logout user
 Route::post('/logout', [UserController::class, 'logout'] )->middleware('auth');
+
 
 
